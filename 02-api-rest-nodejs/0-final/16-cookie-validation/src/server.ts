@@ -10,13 +10,6 @@ const app = fastify()
 // The order we define plugins is the order it will run
 app.register(cookie)
 
-
-// This handler is global only for this context
-// All context changes will happen globally, on all routes
-// app.addHook('preHandler', async (request, reply) => {
-//     console.log(`[${request.method}] ${request.url}`)
-// })
-
 app.register(transactionsRoutes, {
   prefix: 'transactions',
 })

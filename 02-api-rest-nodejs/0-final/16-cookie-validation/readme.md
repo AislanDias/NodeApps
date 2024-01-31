@@ -1,0 +1,1 @@
+- We need to search for transactions from the user session

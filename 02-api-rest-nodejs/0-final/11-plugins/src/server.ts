@@ -3,28 +3,16 @@ import { knex } from './database'
 import crypto from 'node:crypto'
 import { env } from './env'
 import { transactionsRoutes } from './routes/transactions'
-import cookie from '@fastify/cookie'
 
 const app = fastify()
 
 // The order we define plugins is the order it will run
-app.register(cookie)
-
-
-// This handler is global only for this context
-// All context changes will happen globally, on all routes
-// app.addHook('preHandler', async (request, reply) => {
-//     console.log(`[${request.method}] ${request.url}`)
-// })
-
-app.register(transactionsRoutes, {
-  prefix: 'transactions',
-})
+app.register(transactionsRoutes)
 
 // It will return id 1, knex doesn't return all values by default
 app.get('/first', async () => {
   const tables = await knex('transactions').insert({
-    id: crypto.randomUUID(),
+    id : crypto.randomUUID(),
     title: 'Transacao de teste',
     amount: 1000,
   })
@@ -39,7 +27,9 @@ app.get('/all', async () => {
 })
 
 app.get('/hello', async () => {
-  const tables = await knex('transactions').where('amount', 1000).select('*')
+  const tables = await knex('transactions')
+    .where('amount', 1000)
+    .select('*')
 
   return tables
 })
