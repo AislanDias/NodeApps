@@ -15,8 +15,11 @@ if (process.env.NODE_ENV === 'test') {
 // We will use this schema to validate our env
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
+  // We write as pg not postgres because of knex
+  DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
   DATABASE_URL: z.string(),
-  PORT: z.number().default(3333),
+  // Coerce converts strings to numbers if needed
+  PORT: z.coerce.number().default(3333),
 })
 
 // NODE_ENV is a variable to show us the environment we're running in
