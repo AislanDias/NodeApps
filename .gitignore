@@ -1,5 +1,14 @@
+# Dependencies
 02-api-rest-nodejs/node_modules
 notes
-02-api-rest-nodejs/db/app.db
+
+# Database
+02-api-rest-nodejs/db/*.db
+
+# Environment
 02-api-rest-nodejs/.env
 02-api-rest-nodejs/.env.test
+
+# Build
+build
+dist
