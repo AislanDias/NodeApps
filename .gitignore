@@ -1,14 +1,20 @@
 # Dependencies
 02-api-rest-nodejs/node_modules
+03-api-solid/node_modules
 notes
 
 # Database
 02-api-rest-nodejs/db/*.db
+03-api-solid/db/*.db
 
 # Environment
 02-api-rest-nodejs/.env
 02-api-rest-nodejs/.env.test
+03-api-solid/.env
+03-api-solid/.env.test
 
 # Build
-build
-dist
+02-api-rest-nodejs/build
+03-api-solid/build
+02-api-rest-nodejs/dist
+03-api-solid/dist
