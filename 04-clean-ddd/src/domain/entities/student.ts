@@ -1,7 +1,15 @@
 import { Entity } from "../../core/entities/entity";
+import { UniqueEntityId } from "../../core/entities/unique-entity-id";
+import { Answer } from "./answer";
 
 interface StudentProps {
   name: string;
 }
 
-class Student extends Entity<StudentProps> {}
+class Student extends Entity<StudentProps> {
+  static create(props: StudentProps, id?: UniqueEntityId) {
+    const student = new Student(props, id);
+
+    return student;
+  }
+}
