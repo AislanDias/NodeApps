@@ -1,0 +1,2 @@
+- TypeScript to Javascript Conversion using JS Cli is too slow
+- Esbuild and SWC are faster alternatives

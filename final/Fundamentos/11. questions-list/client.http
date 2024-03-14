@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:3333
+# @authToken = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMjYzMjgyNS0zYjI0LTQ3MDctYWRlYi1jODYyNmE3NDc3NGUiLCJpYXQiOjE3MDc1OTk4NzZ9.0wdJz7sspvVWhpZG17e3X2sBunDPaMvPb7L9fu4NsJSoMpgHux_s6tz5ZWemN5ogUdUNzTzoFYI90DbMm58Sl-Jo9fW6S9EOGoWruoaWlzmZ2rQw0P-MiwWdSM3vVJaY76A9Hc_OQ5Vtv02BzorySL1b0vBFed8ouze7huQi6qZs9o9rgTaIJlck8_h2hL2u72JYTEbVorfePTV-HKWeOnKJGhM135xQjzzeWdi1VZclEEIUx6Th0QLHol5XNkoWa9EDi4H5fH93W1zPStZ5GGE7_ulBBKWHqUHJnqpd-CaCzIHVhV3kfIqZ5685f2-fCXjmjYqw9W51gRzn2hWP7w
+@authToken = {{authenticate.response.body.access_token}}
+
+# @name create_account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+    "name": "Aislan Dias",
+    "email": "aislan@email.com.br",
+    "password": "123456"
+}
+
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "aislan@email.com.br",
+    "password": "123456"
+}
+
+
+###
+
+# @name create_question
+POST {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: "Bearer {{authToken}}"
+
+{
+    "title": "Nova Pergunta",
+    "content": "conteudo da pergunta"
+}

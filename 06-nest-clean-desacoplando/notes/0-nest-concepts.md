@@ -1,0 +1,3 @@
+- NEST heavily uses decorators ( A function that receives somethings as a parameters and gives it back modified)
+- Dependency Invertion is heavily used in NEST
+- Using zod with env, can be useful to validate env files, but nest-config is recommended to be used instead
