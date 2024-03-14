@@ -1,11 +1,11 @@
-import { randomUUID } from "node:crypto"
+import { randomUUID } from "node:crypto";
 
 class Student {
-  public name: string
-  public id: string
+  public name: string;
+  public id: string;
 
-  constructor(title: string, content: string){
-    this.name = name
-    this.id = id ?? randomUUID()
+  constructor(name: string, id: string) {
+    this.name = name;
+    this.id = id ?? randomUUID();
   }
 }
