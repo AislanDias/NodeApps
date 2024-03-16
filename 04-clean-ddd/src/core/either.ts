@@ -17,11 +17,11 @@ export class Left<L, R> {
   }
 
   isRight(): this is Right<L, R> {
-    return true
+    return false
   }
 
   isLeft(): this is Left<L, R> {
-    return false
+    return true
   }
 }
 
@@ -34,11 +34,11 @@ export class Right<L, R> {
   }
 
   isRight(): this is Right<L, R> {
-    return false
+    return true
   }
 
   isLeft(): this is Left<L, R> {
-    return true
+    return false
   }
 }
 
