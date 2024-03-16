@@ -1,15 +1,15 @@
 import { makeAnswerComment } from '@/test/factories/make-answer-comment'
-import { InMemoryAnswerCommentRepository } from '@/test/repositories/in-memory-answer-comments-repository'
+import { InMemoryAnswerCommentsRepository } from '@/test/repositories/in-memory-answer-comments-repository'
 import { DeleteAnswerCommentUseCase } from './delete-answer-comment'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentRepository
+let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
 let sut: DeleteAnswerCommentUseCase
 // sut = System Under Test
 
 describe('Delete Answer Comment', () => {
   beforeEach(() => {
-    inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentRepository()
+    inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository()
 
     sut = new DeleteAnswerCommentUseCase(inMemoryAnswerCommentsRepository)
   })
