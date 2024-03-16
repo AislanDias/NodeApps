@@ -28,7 +28,7 @@ describe('Delete Answer Comment', () => {
     expect(inMemoryAnswerCommentsRepository.items).toHaveLength(0)
   })
 
-  it('should be able to delete another user answer comment', async () => {
+  it('should not be able to delete another user answer comment', async () => {
     const answer = makeAnswerComment({
       authorId: new UniqueEntityId('author-1'),
     })
