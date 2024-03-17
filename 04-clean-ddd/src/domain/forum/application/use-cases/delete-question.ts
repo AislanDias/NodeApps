@@ -1,4 +1,3 @@
-import { Question } from '@/domain/forum/enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 import { Either, left, right } from '@/core/either'
 import { NotAllowedError } from './errors/not-allowed-error'
