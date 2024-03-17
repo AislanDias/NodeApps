@@ -3,10 +3,12 @@ import { Slug } from './value-objects/slug'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 import dayjs from 'dayjs'
+import { QuestionAttachment } from './answer-attachment'
 
 export interface QuestionProps {
   authorId: UniqueEntityId
   bestAnswerId?: UniqueEntityId
+  attachments: QuestionAttachment[]
   title: string
   content: string
   slug: Slug
@@ -33,6 +35,10 @@ export class Question extends AgreggateRoot<QuestionProps> {
 
   get slug() {
     return this.props.slug
+  }
+
+  get attachments() {
+    return this.props.attachments
   }
 
   get createdAt() {
@@ -67,6 +73,10 @@ export class Question extends AgreggateRoot<QuestionProps> {
     this.touch()
   }
 
+  set attachments(attachments) {
+    this.props.attachments = attachments
+  }
+
   // Undefined on setter, is it a bad practice?
   set bestAnswerId(bestAnswerId: UniqueEntityId | undefined) {
     this.props.bestAnswerId = bestAnswerId
@@ -74,13 +84,14 @@ export class Question extends AgreggateRoot<QuestionProps> {
   }
 
   static create(
-    props: Optional<QuestionProps, 'createdAt' | 'slug'>,
+    props: Optional<QuestionProps, 'createdAt' | 'slug' | 'attachments'>,
     id?: UniqueEntityId,
   ) {
     const question = new Question(
       {
         ...props,
         slug: props.slug ?? Slug.createFromText(props.title),
+        attachments: props.attachments ?? [],
         createdAt: props.createdAt ?? new Date(),
       },
       id,
