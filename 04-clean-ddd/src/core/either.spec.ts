@@ -11,7 +11,7 @@ test('success result', () => {
   const result = doSomething(true)
 
   if (result.isRight()) {
-    console.log(result.value)
+    // console.log(result.value)
   }
 
   expect(result.isRight()).toEqual(true)
