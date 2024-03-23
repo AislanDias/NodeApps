@@ -19,11 +19,11 @@ lerna-debug.log*
 .DS_Store
 
 # Tests
-/coverage
-/.nyc_output
+coverage
+.nyc_output
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
@@ -40,11 +40,11 @@ lerna-debug.log*
 
 # dotenv environment variable files
 .env
-.env.test
 .env.development.local
 .env.test.local
 .env.production.local
 .env.local
+.env.test
 
 # temp directory
 .temp
@@ -61,6 +61,10 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # ENV
 .env
+
+#ESLint
+.eslintrc
+.eslintrc.json
 
 # Docker
 data
