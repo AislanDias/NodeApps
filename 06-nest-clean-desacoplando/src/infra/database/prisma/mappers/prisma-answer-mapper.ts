@@ -3,7 +3,6 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
 export class PrismaAnswerMapper {
-  // Convert Prisma Answer to Domain
   static toDomain(raw: PrismaAnswer): Answer {
     return Answer.create(
       {
