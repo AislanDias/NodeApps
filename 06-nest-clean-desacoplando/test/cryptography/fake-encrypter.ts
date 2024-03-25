@@ -1,6 +1,6 @@
-import { Encryper } from '@/domain/forum/application/cryptography/encrypter'
+import { Encrypter } from '@/domain/forum/application/cryptography/encrypter'
 
-export class FakeEncrypter implements Encryper {
+export class FakeEncrypter implements Encrypter {
   async encrypt(payload: Record<string, unknown>): Promise<string> {
     return JSON.stringify(payload)
   }
