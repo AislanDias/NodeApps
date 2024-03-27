@@ -31,6 +31,10 @@ import { DeleteQuestionCommentController } from './controllers/delete-question-c
 import { DeleteQuestionCommentUseCase } from '@/domain/forum/application/use-cases/delete-question-comment'
 import { CommentOnAnswerController } from './controllers/comment-on-answer.controller'
 import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/comment-on-answer'
+import { DeleteAnswerCommentController } from './controllers/delete-answer-comment.e2e-spec'
+import { DeleteAnswerCommentUseCase } from '@/domain/forum/application/use-cases/delete-answer-comment'
+import { FetchQuestionCommentsController } from './controllers/fetch-question-comments.controller'
+import { FetchQuestionCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-question-comments'
 
 // We need to define CreateQuestionUseCase on providers because we
 // have a controller that depends on it
@@ -52,6 +56,8 @@ import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/com
     CommentOnQuestionController,
     DeleteQuestionCommentController,
     CommentOnAnswerController,
+    DeleteAnswerCommentController,
+    FetchQuestionCommentsController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -69,6 +75,8 @@ import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/com
     CommentOnQuestionUseCase,
     DeleteQuestionCommentUseCase,
     CommentOnAnswerUseCase,
+    DeleteAnswerCommentUseCase,
+    FetchQuestionCommentsUseCase,
   ],
 })
 export class HttpModule { }
