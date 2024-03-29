@@ -9,8 +9,7 @@ let sut: RegisterStudentUseCase
 
 describe('Register Student', () => {
   beforeEach(() => {
-    inMemoryStudentsRepository =
-      new InMemoryStudentsRepository()
+    inMemoryStudentsRepository = new InMemoryStudentsRepository()
     fakeHasher = new FakeHasher()
 
     sut = new RegisterStudentUseCase(inMemoryStudentsRepository, fakeHasher)
@@ -20,12 +19,12 @@ describe('Register Student', () => {
     const result = await sut.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
-      password: '123456'
+      password: '123456',
     })
 
     expect(result.isRight()).toBe(true)
     expect(result.value).toEqual({
-      student: inMemoryStudentsRepository.items[0]
+      student: inMemoryStudentsRepository.items[0],
     })
   })
 
@@ -33,15 +32,12 @@ describe('Register Student', () => {
     const result = await sut.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
-      password: '123456'
+      password: '123456',
     })
 
     const hashedPassword = await fakeHasher.hash('123456')
 
     expect(result.isRight()).toBe(true)
-    expect(inMemoryStudentsRepository.items[0].password
-    ).toEqual(
-      hashedPassword
-    )
+    expect(inMemoryStudentsRepository.items[0].password).toEqual(hashedPassword)
   })
 })
